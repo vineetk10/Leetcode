@@ -12,7 +12,7 @@ class Solution {
         ListNode n = node.next;
         node.val = n.val;
         node.next = node.next.next;
-        n.next = null;
             
     }
+    
 }
