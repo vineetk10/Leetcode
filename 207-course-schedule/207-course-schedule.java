@@ -16,11 +16,11 @@ class Solution {
         
         for(int i=0;i<numCourses; i++)
         {
-            if(memo.contains(i))
-                continue;
+            // if(memo.contains(i))
+            //     continue;
             if(!CanFinish(numCourses, visited, memo, mat, i))
                 return false;
-            memo.add(i);
+            // memo.add(i);
             
         }
         return true;
@@ -32,6 +32,8 @@ class Solution {
             return false;
         if(memo.contains(index))
             return true;
+        if(mat.get(index).size()==0)
+            return true;
         visited.add(index);
         for(int i=0;i<mat.get(index).size();i++)
         {
@@ -39,6 +41,7 @@ class Solution {
                return false;
         }
         visited.remove(index);
+        mat.get(index).clear();
         return true;
     }
 }
