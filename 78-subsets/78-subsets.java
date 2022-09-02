@@ -21,8 +21,6 @@ class Solution {
         
         for(int i = index;i<nums.length;i++)
         {
-            
-            // Subsets(nums, res, i+1, currArr);
             currArr.add(nums[index]);
             Subsets(nums, res, i+1, currArr);
             currArr.remove(currArr.size()-1);
