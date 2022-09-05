@@ -21,7 +21,6 @@ class Solution {
         {
             if(isPali(s, index, i-1))
             {
-                System.out.println("Hi"+ s.substring(index, i));
                 curr.add(s.substring(index, i));
                 Partition(s, res, curr, i);
                 curr.remove(curr.size()-1);
