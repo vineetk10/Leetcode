@@ -15,54 +15,45 @@
  *     public List<NestedInteger> getList();
  * }
  */
+import java.util.NoSuchElementException;
 public class NestedIterator implements Iterator<Integer> {
-    public int index = 0;
-    public List<Integer> flattenedList;
+    public static Deque<NestedInteger> dq;
     public NestedIterator(List<NestedInteger> nestedList) {
-        flattenedList = new ArrayList<>();
+        dq = new LinkedList<>();
         
-        for(int i=0;i<nestedList.size();i++)
+        for(int i=nestedList.size()-1;i>=0;i--)
         {
-            FlattenList(nestedList, i);
+            dq.addFirst(nestedList.get(i));
         }
-        
-        System.out.println(flattenedList.toString());
-        
     }
 
     @Override
     public Integer next() {
-        if(hasNext()){
-            return flattenedList.get(index++);
-        }
-        return null;
-    }
-
-    @Override
-    public boolean hasNext() {
-        return index<flattenedList.size()?true: false;
+        if(!hasNext())
+              throw new NoSuchElementException();
+        return dq.removeFirst().getInteger();
     }
     
-    public void FlattenList(List<NestedInteger> nestedList, int index)
-    {
-        if(index == nestedList.size())
-            return;
+    private void makeTopInteger(){
         
-        if(nestedList.get(index).isInteger())
-        {
-            // System.out.println(nestedList.get(index).getInteger()+" "+index);
-            this.flattenedList.add(nestedList.get(index).getInteger());
-            
-        } 
+        if(dq.size()>0)
+            if(dq.peek().isInteger())
+            return;
         else
         {
-            for(int i=0;i<nestedList.get(index).getList().size();i++)
+            NestedInteger ni = dq.removeFirst();
+            for(int i=ni.getList().size()-1;i>=0;i--)
             {
-                // System.out.println("Hi"+index);
-                FlattenList(nestedList.get(index).getList(), i);
+                if(ni.getList().size()>0)
+                    dq.addFirst(ni.getList().get(i));
             }
+             makeTopInteger();
         }
-       
+    }
+    @Override
+    public boolean hasNext() {
+        makeTopInteger();
+        return !dq.isEmpty();
     }
 }
 
