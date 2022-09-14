@@ -9,9 +9,9 @@ class Solution {
         {
             String time = timePoints.get(i);
             resArr[i] = Integer.parseInt(time.substring(0,2))*60 + Integer.parseInt(time.substring(3,5));
-            // if(minutes.contains(resArr[i]))
-            //     return 0;
-            // minutes.add(resArr[i]);
+            if(minutes.contains(resArr[i]))
+                return 0;
+            minutes.add(resArr[i]);
         }
         
         Arrays.sort(resArr);
