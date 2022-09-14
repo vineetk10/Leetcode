@@ -1,5 +1,7 @@
 class Solution {
     public int findMinDifference(List<String> timePoints) {
+        if(timePoints.size()>24*60)
+            return 0;
         int resArr[] = new int[timePoints.size()];
         
         for(int i=0;i<timePoints.size();i++)
