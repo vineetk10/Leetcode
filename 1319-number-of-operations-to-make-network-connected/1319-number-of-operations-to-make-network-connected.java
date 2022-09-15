@@ -19,12 +19,13 @@ class Solution {
         HashSet<Integer> visited = new HashSet<>();
         
         for(int i=0; i < n; i++){
+            if(!visited.contains(i)){
+                count++;
+                DFS(hm, visited, i);
+            }
+                
             
-            if(visited.contains(i))
-                continue;
             
-            DFS(hm, visited, i);
-            count++;
         }
         return count-1;
     }
