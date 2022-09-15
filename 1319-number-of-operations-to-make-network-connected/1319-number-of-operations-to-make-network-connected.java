@@ -22,21 +22,10 @@ class Solution {
             
             if(visited.contains(i))
                 continue;
-            System.out.println(i);
-            
             
             DFS(hm, visited, i);
             count++;
         }
-        /*for(int key: hm.keySet())
-        {
-            if(visited.contains(key))
-                continue;
-            System.out.println(key);
-            count++;
-            visited.add(key);
-            DFS(hm, visited, key);
-        }*/
         return count-1;
     }
     
