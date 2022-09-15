@@ -22,10 +22,7 @@ class Solution {
             if(!visited.contains(i)){
                 count++;
                 DFS(hm, visited, i);
-            }
-                
-            
-            
+            }  
         }
         return count-1;
     }
