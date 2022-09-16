@@ -32,7 +32,7 @@ class Solution {
         {
             for(int j=0;j<this.board[0].length;j++)
             {
-                if(root.children[this.board[i][j]-'a']!=null)
+                // if(root.children[this.board[i][j]-'a']!=null)
                     Backtrack(root, i,j);
             }
         }
