@@ -26,8 +26,8 @@ class Solution {
     {
         if(visited.contains(index))
             return false;
-        if(memo.contains(index))
-            return true;
+        // if(memo.contains(index))
+        //     return true;
         if(mat.get(index).size()==0)
             return true;
         visited.add(index);
