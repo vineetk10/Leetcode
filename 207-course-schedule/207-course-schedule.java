@@ -16,12 +16,8 @@ class Solution {
         
         for(int i=0;i<numCourses; i++)
         {
-            // if(memo.contains(i))
-            //     continue;
             if(!CanFinish(numCourses, visited, memo, mat, i))
                 return false;
-            // memo.add(i);
-            
         }
         return true;
     }
