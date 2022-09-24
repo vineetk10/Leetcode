@@ -32,11 +32,8 @@ class Solution {
                 nByte--;
                 i++;
             }
-            else if((num & 1<<7) == 0)
-            {
-                nByte = 0;
+            else
                 i++;
-            }
         }
         return nByte > 0 ? false : true;
     }
