@@ -1,14 +1,11 @@
 class Solution {
     public boolean validUtf8(int[] data) {
         int i=0;
-        // if(data.length>=5)
-        //     return false;
+      
         int nByte = 0;
         while(i<data.length)
         {
             int num = data[i];
-             System.out.println("nByte "+nByte);
-            
             if(((num & 1<<7) == 1<<7) && nByte==0)
             {
                 int k = 7;
@@ -44,10 +41,7 @@ class Solution {
                 nByte = 0;
                 i++;
             }
-            else{
-                System.out.println("Heyy");
-                i++;
-            }
+            
            
             
         }
