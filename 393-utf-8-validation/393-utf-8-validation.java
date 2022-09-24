@@ -22,17 +22,13 @@ class Solution {
                 if(nByte==1 || nByte>=5)
                     return false;
                 nByte--;
-                System.out.println(nByte);
                 i++;
             }
             else if(nByte>0)
             {
                 
-                if(((num & 1<<7)!=1<<7 || (num & 1<<6)!=0)){
-                    System.out.println(nByte);
-                        System.out.println("Hi "+num);
+                if(((num & 1<<7)!=1<<7 || (num & 1<<6)!=0))
                         return false;
-                }
                 nByte--;
                 i++;
             }
@@ -41,11 +37,7 @@ class Solution {
                 nByte = 0;
                 i++;
             }
-            
-           
-            
         }
-        System.out.println(nByte);
         return nByte > 0 ? false : true;
     }
 }
